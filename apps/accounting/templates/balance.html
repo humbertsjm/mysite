@@ -1,0 +1,90 @@
+{% extends "_base.html" %}
+
+{% block title %}Balance{% endblock %}
+
+{% block styles %}
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block content %}
+<main class="container"></main>
+    <article class="row">
+        <section class="col">
+            {% for section in assets %}
+            <div>
+                <table class="table table-sm">
+                    <thead>
+                        <th>{{ section.label}}</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        {% for item in section.items %}
+                        <tr>
+                            <td>{{ item.label }}</td>
+                            <td class="text-end">{{ item.qty }} {{ item.currency }}</td>
+                        </tr>
+                        {% empty %} 
+                        <tr>
+                            <td colspan="2">No accounts found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+        </section>
+        <section class="col d-flex flex-column justify-content-between">
+            <div class="row">
+                {% for section in liabilities %}
+                <div>
+                    <table class="table">
+                        <thead>
+                            <th>{{ section.label }}</th>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                            {% for item in section.items %}
+                            <tr>
+                                <td>{{ item.label }}</td>
+                                <td class="text-end">{{ item.qty }} {{ item.currency }}</td>
+                            </tr>
+                            {% empty %} 
+                            <tr>
+                                <td colspan="2">No accounts found</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                {% for section in equities %}
+                <div>
+                    <table class="table">
+                        <thead>
+                            <th>{{ section.label }}</th>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                            {% for item in section.items %}
+                            <tr>
+                                <td>{{ item.label }}</td>
+                                <td class="text-end">{{ item.qty }} {{ item.currency }}</td>
+                            </tr>
+                            {% empty %} 
+                            <tr>
+                                <td colspan="2">No accounts found</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </article>
+</main>
+{% endblock %}

@@ -1,0 +1,26 @@
+# Python env files and directories
+.venv
+Pipfile.lock
+
+# Environtment config
+.env
+
+# SQLite database files
+*.sqlite3
+
+# Python cache firles
+*.pyc
+*/__pycache__/*
+
+# 
+
+# Custom database seeders
+apps/coreapp/management/commands/_seedhelper.py
+apps/coreapp/management/commands/dbseed.py
+
+read
+# Until an stable/usable version
+apps/accounting/migrations/*.py
+!apps/accounting/migrations/__init__.py
+apps/coreapp/migrations/*.py
+!apps/coreapp/migrations/__init__.py
