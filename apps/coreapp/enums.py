@@ -25,7 +25,7 @@ class CurrencyTag(models.IntegerChoices):
     OTHER: tuple[Literal[99], str] = 99, _("Other")
 
     @classmethod
-    def get_label(cls, _tag) -> str:
+    def get_label(cls, _tag: int) -> str:
         return cls.labels[
             cls.values.index(_tag)
         ]

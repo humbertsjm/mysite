@@ -12,13 +12,12 @@ Pipfile.lock
 *.pyc
 */__pycache__/*
 
-# 
+# Text files
+seed.json
 
-# Custom database seeders
-apps/coreapp/management/commands/_seedhelper.py
-apps/coreapp/management/commands/dbseed.py
+# Private Django custom commands and jsons
+apps/coreapp/management/commands/_private.py
 
-read
 # Until an stable/usable version
 apps/accounting/migrations/*.py
 !apps/accounting/migrations/__init__.py
