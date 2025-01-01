@@ -33,6 +33,7 @@ class SeedAccount:
     entity: str
     behavior: str
     currency: str
+    quantity: float = 0
 
 @dataclass
 class SeedExchangeRatio:

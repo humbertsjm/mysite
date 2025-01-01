@@ -78,6 +78,7 @@ class Command(BaseCommand):
                 entity,
                 behavior,
                 currency,
+                _quantity=a.quantity,
             )
 
         for i, e in enumerate(seed.exchange_ratios):
