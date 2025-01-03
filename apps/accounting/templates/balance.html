@@ -14,11 +14,8 @@
         <section class="col">
             {% for section in assets %}
             <div>
-                <table class="table table-sm">
-                    <thead>
-                        <th>{{ section.label}}</th>
-                        <th></th>
-                    </thead>
+                <table class="table table-sm caption-top">
+                    <caption>Total {{ section.label }}: {{ section.total }} </caption>
                     <tbody>
                         {% for item in section.items %}
                         <tr>
@@ -39,11 +36,8 @@
             <div class="row">
                 {% for section in liabilities %}
                 <div>
-                    <table class="table">
-                        <thead>
-                            <th>{{ section.label }}</th>
-                            <th></th>
-                        </thead>
+                    <table class="table caption-top">
+                        <caption>Total {{ section.label }}: {{ section.total }} </caption>
                         <tbody>
                             {% for item in section.items %}
                             <tr>
@@ -64,11 +58,15 @@
                 {% for section in equities %}
                 <div>
                     <table class="table">
-                        <thead>
-                            <th>{{ section.label }}</th>
-                            <th></th>
-                        </thead>
                         <tbody>
+                            <tr>
+                                <td>Activos </td>
+                                <td class="text-end">{{ total_assets }} MXN</td>
+                            </tr>
+                            <tr>
+                                <td>Pasivos </td>
+                                <td class="text-end">- {{ total_liabilities }} MXN</td>
+                            </tr>
                             {% for item in section.items %}
                             <tr>
                                 <td>{{ item.label }}</td>

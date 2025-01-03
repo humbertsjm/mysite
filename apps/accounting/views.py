@@ -26,12 +26,19 @@ class BalancePageView(LoginRequiredMixin, ProfileDataMixin, TemplateView):
                     }
                     for acc in Account.dbfunctions.get_by_behavior(beh)
                 ],
-                'section_total': 0
+                'total': 0
             }
             for beh in AccountingBehavior.dbfunctions.get_by_tag(
                 AccountingCategoryTag.ASSET
             )
         ]
+        context['total_assets'] = 0
+        for asset_group in context['assets']:
+            asset_group['total'] = sum([
+                item['qty']
+                for item in asset_group['items']
+            ])
+            context['total_assets'] += asset_group['total']
 
         context['liabilities'] = [
             {
@@ -44,25 +51,33 @@ class BalancePageView(LoginRequiredMixin, ProfileDataMixin, TemplateView):
                     }
                     for acc in Account.dbfunctions.get_by_behavior(beh)
                 ],
-                'section_total': 0
+                'total': 0
             }
             for beh in AccountingBehavior.dbfunctions.get_by_tag(
                 AccountingCategoryTag.LIABILITY
             )
         ]
+        context['total_liabilities'] = 0
+        for liability_group in context['liabilities']:
+            liability_group['total'] = sum([
+                item['qty']
+                for item in liability_group['items']
+            ])
+            context['total_liabilities'] += liability_group['total']
 
+        equity_total = context['total_assets'] - context['total_liabilities']
         context['equities'] = [
             {
                 'label': beh.label,
                 'items': [
                     {
                         'label': acc.label,
-                        'qty': acc.quantity,
+                        'qty': equity_total,
                         'currency': acc.currency.label
                     }
                     for acc in Account.dbfunctions.get_by_behavior(beh)
                 ],
-                'section_total': 0
+                'total': 0
             }
             for beh in AccountingBehavior.dbfunctions.get_by_tag(
                 AccountingCategoryTag.EQUITY

@@ -70,3 +70,34 @@ class EntityTag(models.IntegerChoices):
         return cls.labels[
             cls.values.index(_tag)
         ]
+
+
+class MonthOption(models.IntegerChoices):
+    JAN: tuple[Literal[1], str] = 1, _("January")
+    FEB: tuple[Literal[2], str] = 2, _("February")
+    MAR: tuple[Literal[3], str] = 3, _("March")
+    APR: tuple[Literal[4], str] = 4, _("April")
+    MAY: tuple[Literal[5], str] = 5, _("May")
+    JUN: tuple[Literal[6], str] = 6, _("June")
+    JUL: tuple[Literal[7], str] = 7, _("July")
+    AUG: tuple[Literal[8], str] = 8, _("August")
+    SEP: tuple[Literal[9], str] = 9, _("September")
+    OCT: tuple[Literal[10], str] = 10, _("October")
+    NOV: tuple[Literal[11], str] = 11, _("November")
+    DEC: tuple[Literal[12], str] = 12, _("December")
+
+
+class MonthOptionWithInitial(models.IntegerChoices):
+    INI: tuple[Literal[0], str] = 0, _("Initial")
+    JAN: tuple[Literal[1], str] = 1, _("January")
+    FEB: tuple[Literal[2], str] = 2, _("February")
+    MAR: tuple[Literal[3], str] = 3, _("March")
+    APR: tuple[Literal[4], str] = 4, _("April")
+    MAY: tuple[Literal[5], str] = 5, _("May")
+    JUN: tuple[Literal[6], str] = 6, _("June")
+    JUL: tuple[Literal[7], str] = 7, _("July")
+    AUG: tuple[Literal[8], str] = 8, _("August")
+    SEP: tuple[Literal[9], str] = 9, _("September")
+    OCT: tuple[Literal[10], str] = 10, _("October")
+    NOV: tuple[Literal[11], str] = 11, _("November")
+    DEC: tuple[Literal[12], str] = 12, _("December")
