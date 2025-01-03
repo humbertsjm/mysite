@@ -16,21 +16,6 @@ DEFAULT_DISPLAY_ORDER = 99
 DEFAULT_FOLIO = 99
 
 
-class AbstractMonth():
-    JAN: tuple[Literal[1], str] = 1, _("January")
-    FEB: tuple[Literal[2], str] = 2, _("February")
-    MAR: tuple[Literal[3], str] = 3, _("March")
-    APR: tuple[Literal[4], str] = 4, _("April")
-    MAY: tuple[Literal[5], str] = 5, _("May")
-    JUN: tuple[Literal[6], str] = 6, _("June")
-    JUL: tuple[Literal[7], str] = 7, _("July")
-    AUG: tuple[Literal[8], str] = 8, _("August")
-    SEP: tuple[Literal[9], str] = 9, _("September")
-    OCT: tuple[Literal[10], str] = 10, _("October")
-    NOV: tuple[Literal[11], str] = 11, _("November")
-    DEC: tuple[Literal[12], str] = 12, _("December")
-
-
 class CurrencyTag(models.IntegerChoices):
     MONEY: tuple[Literal[0], str] = 0, _("Money (FIAT currency)")
     POINT: tuple[Literal[1], str] = 1, _("Points (Rewards/Loyalty/Exchange digital points)")
@@ -87,5 +72,32 @@ class EntityTag(models.IntegerChoices):
         ]
 
 
-class MonthOptionWithInitial(AbstractMonth, models.IntegerChoices):
+class MonthOption(models.IntegerChoices):
+    JAN: tuple[Literal[1], str] = 1, _("January")
+    FEB: tuple[Literal[2], str] = 2, _("February")
+    MAR: tuple[Literal[3], str] = 3, _("March")
+    APR: tuple[Literal[4], str] = 4, _("April")
+    MAY: tuple[Literal[5], str] = 5, _("May")
+    JUN: tuple[Literal[6], str] = 6, _("June")
+    JUL: tuple[Literal[7], str] = 7, _("July")
+    AUG: tuple[Literal[8], str] = 8, _("August")
+    SEP: tuple[Literal[9], str] = 9, _("September")
+    OCT: tuple[Literal[10], str] = 10, _("October")
+    NOV: tuple[Literal[11], str] = 11, _("November")
+    DEC: tuple[Literal[12], str] = 12, _("December")
+
+
+class MonthOptionWithInitial(models.IntegerChoices):
     INI: tuple[Literal[0], str] = 0, _("Initial")
+    JAN: tuple[Literal[1], str] = 1, _("January")
+    FEB: tuple[Literal[2], str] = 2, _("February")
+    MAR: tuple[Literal[3], str] = 3, _("March")
+    APR: tuple[Literal[4], str] = 4, _("April")
+    MAY: tuple[Literal[5], str] = 5, _("May")
+    JUN: tuple[Literal[6], str] = 6, _("June")
+    JUL: tuple[Literal[7], str] = 7, _("July")
+    AUG: tuple[Literal[8], str] = 8, _("August")
+    SEP: tuple[Literal[9], str] = 9, _("September")
+    OCT: tuple[Literal[10], str] = 10, _("October")
+    NOV: tuple[Literal[11], str] = 11, _("November")
+    DEC: tuple[Literal[12], str] = 12, _("December")
